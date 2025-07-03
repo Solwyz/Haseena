@@ -3,6 +3,7 @@ package com.solwyz.haseena.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import lombok.AllArgsConstructor;
@@ -15,10 +16,18 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	private String title;
-	@Column(length = 5000)
+//	@Column(length = 5000)
+//	private String shortDescription;
+//	@Column(length = 5000)
+//	private String blogShortDescription;
+	@Lob
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
-	@Column(length = 5000)
+
+	@Lob
+	@Column(columnDefinition = "TEXT")
 	private String blogShortDescription;
+
 	private String image;
 	
 	public Long getId() {
